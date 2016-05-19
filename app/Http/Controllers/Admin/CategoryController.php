@@ -21,16 +21,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @return Response
@@ -40,6 +30,8 @@ class CategoryController extends Controller
         $category       = new Category;
         $category->name = $request->input('name');
         $category->save();
+
+        Flash::success('Category "' . $category->name . '" has been created');
 
         return redirect()->back();
     }
@@ -69,6 +61,8 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->save();
 
+        Flash::success('The category has been updated');
+
         return redirect()->back();
     }
 
@@ -83,6 +77,9 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+
+        Flash::success('The category has been deleted');
+
         return redirect()->back();
     }
 }

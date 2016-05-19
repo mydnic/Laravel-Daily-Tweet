@@ -16,6 +16,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->text('content');
             $table->string('slug')->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

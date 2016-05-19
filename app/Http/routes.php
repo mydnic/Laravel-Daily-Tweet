@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/', 'ItemController@showDaily');
+    Route::auth();
 });
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::resource('item', 'Admin\ItemController');

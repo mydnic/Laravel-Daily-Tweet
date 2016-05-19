@@ -5,17 +5,38 @@
     <div class="row">
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Add new item</div>
+                <div class="panel-heading">
+                    Manage Items
+                    <a href="{{ route('admin.item.create') }}" class="pull-right btn btn-primary btn-xs">Add new Item</a>
+                </div>
 
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'admin.item.store']) !!}
-                        <div class="form-group">
-                            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-                        </div>
-                    {!! Form::close() !!}
+                    <table class="table table-striped table-bordered table-hover" id="TableData">
+                        <thead>
+                            <tr>
+                                <th>Content</th>
+                                <th>Created At</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($items as $item)
+                                <tr>
+                                    <td>
+                                        {{ $item->content }}
+                                    </td>
+                                    <td>
+                                        {{ $item->created_at->format('d/m/Y') }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.item.edit', $item->id) }}" class="btn btn-info">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
