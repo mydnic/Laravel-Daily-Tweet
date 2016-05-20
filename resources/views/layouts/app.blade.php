@@ -51,6 +51,13 @@
                     <li>
                         <a href="{{ url('random') }}">Random</a>
                     </li>
+                    @if (!empty($settings->twitter_account))
+                        <li>
+                            <a href="https://twitter.com/{{$settings->twitter_account}}" target="_blank">
+                                {{$settings->twitter_account}}
+                            </a>
+                        </li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
