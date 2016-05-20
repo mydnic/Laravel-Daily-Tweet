@@ -152,6 +152,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Sofa\Eloquence\ServiceProvider::class,
+        Thujohn\Twitter\TwitterServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -210,6 +211,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Image'     => Intervention\Image\Facades\Image::class,
+        'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
 
     ],
 

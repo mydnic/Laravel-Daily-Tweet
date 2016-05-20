@@ -12,8 +12,10 @@
 */
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/', 'ItemController@showDaily');
+    Route::get('', ['as' => 'home', 'uses' => 'ItemController@showDaily']);
     Route::auth();
+    Route::get('random', ['as' => 'item.random', 'uses' => 'ItemController@showRandom']);
+    Route::get('{slug}', ['as' => 'item.show', 'uses' => 'ItemController@show']);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {

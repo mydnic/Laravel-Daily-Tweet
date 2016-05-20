@@ -12,7 +12,8 @@
         "sofa/eloquence": "~5.1@dev",
         "cviebrock/eloquent-sluggable": "^3.0",
         "doctrine/dbal": "^2.5",
-        "intervention/image": "~2.2"
+        "intervention/image": "~2.2",
+        "thujohn/twitter": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

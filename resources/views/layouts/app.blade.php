@@ -15,16 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
+    <link href="/css/app.css" rel="stylesheet">
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
@@ -74,6 +65,16 @@
             </div>
         </div>
     </nav>
+
+    @if (Session::has('flash_notification.message'))
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    @include('flash::message')
+                </div>
+            </div>
+        </div>
+    @endif
 
     @yield('content')
 

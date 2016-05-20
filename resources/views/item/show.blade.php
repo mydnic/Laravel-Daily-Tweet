@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="panel-body">
-                    {{ $item }}
+                    {{ $item->content }}
                 </div>
             </div>
         </div>
