@@ -14,7 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('layout.app', 'App\Http\ViewComposers\LayoutComposer');
+        View::composer('layouts.app', 'App\Http\ViewComposers\LayoutComposer');
     }
 
     /**
