@@ -12,7 +12,8 @@ class ItemController extends Controller
 {
     public function showDaily()
     {
-        $item = Item::first();
+        $daily_item_id = Daily::first();
+        $item = Item::find($daily_item_id);
 
         if (is_null($item)) {
             Flash::warning('Please add your first item');
