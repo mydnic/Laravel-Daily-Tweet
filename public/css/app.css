@@ -2,10 +2,21 @@ body {
     font-family: 'Lato';
 }
 
+img {
+    max-width: 100%;
+}
+
 .fa-btn {
     margin-right: 6px;
 }
 
 span.coma:last-child {
     display: none;
+}
+
+.code {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

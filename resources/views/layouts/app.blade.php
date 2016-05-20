@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel Daily Tweet</title>
+    <title>@yield('meta-title', $settings->name)</title>
+    <meta name="description" content="@yield('meta-description', $settings->description)">
+    <meta name="author" content="{{ $settings->name }}">
+    <meta property="og:title" content="@yield('meta-title', $settings->name)"/>
+    <meta property="og:url" content="@yield('meta-url', route('home'))"/>
+    <meta property="og:image" content="@yield('meta-image', url($settings->logo))"/>
+    <meta property="og:site_name" content="{{ $settings->name }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="@yield('meta-description', $settings->description)">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -16,6 +24,7 @@
     <link href="//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
+    {!! $settings->script_head !!}
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
@@ -32,7 +41,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel Daily Tweet
+                    {{ $settings->name }}
                 </a>
             </div>
 
@@ -57,6 +66,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ route('admin.item.index') }}">Manage Content</a></li>
+                                <li><a href="{{ route('admin.setting.edit') }}">Settings</a></li>
                                 <li><a href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -74,6 +84,13 @@
                 </div>
             </div>
         </div>
+    @endif
+
+    @if (!empty($settings->logo))
+        <div class="text-center">
+            <img src="{{ $settings->logo }}" alt="">
+        </div>
+        <hr>
     @endif
 
     @yield('content')
