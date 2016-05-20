@@ -13,6 +13,7 @@ class CreateDailyItemTable extends Migration
     public function up()
     {
         Schema::create('daily_item', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('item_id');
             $table->timestamps();
         });
