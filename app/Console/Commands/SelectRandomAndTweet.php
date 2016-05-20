@@ -37,6 +37,8 @@ class SelectRandomAndTweet extends Command
 
         $link = Twitter::linkify(route('item.show', $random_item->slug));
 
+        $this->info($random_item->content . ' ' . $link);
+
         Twitter::postTweet([
             'status' => $random_item->content . ' ' . $link,
             'format' => 'json'

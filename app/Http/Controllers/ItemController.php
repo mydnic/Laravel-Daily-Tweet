@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Daily;
 use App\Http\Requests;
 use App\Item;
 use Illuminate\Http\Request;
@@ -12,8 +13,7 @@ class ItemController extends Controller
 {
     public function showDaily()
     {
-        $daily_item_id = Daily::first();
-        $item = Item::find($daily_item_id);
+        $item = Daily::first()->item;
 
         if (is_null($item)) {
             Flash::warning('Please add your first item');
