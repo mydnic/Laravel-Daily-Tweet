@@ -32,7 +32,7 @@ class SelectRandomAndTweet extends Command
     {
         $daily_item = Daily::first();
         $random_item = Item::orderByRaw('RAND()')->first();
-        $daily_item->id = $random_item->id;
+        $daily_item->item_id = $random_item->id;
         $daily_item->save();
 
         $link = Twitter::linkify(route('item.show', $random_item->slug));
