@@ -3,7 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Daily;
+use App\Item;
 use Illuminate\Console\Command;
+use Twitter;
 
 class SelectRandomAndTweet extends Command
 {
