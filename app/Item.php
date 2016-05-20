@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Sofa\Eloquence\Eloquence;
 
-class Item extends Model
+class Item extends Model implements SluggableInterface
 {
     use SoftDeletes, SluggableTrait, Eloquence;
 
