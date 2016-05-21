@@ -18,6 +18,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('{slug}', ['as' => 'item.show', 'uses' => 'ItemController@show']);
 });
 
+Route::group(['prefix' => 'admin', 'middleware' => 'api'], function () {
+    Route::get('daily', 'API\ItemController@getDaily');
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::resource('item', 'Admin\ItemController');
     Route::get('category/{id}/delete', ['as' => 'admin.category.delete', 'uses' => 'Admin\CategoryController@delete']);
