@@ -12,7 +12,7 @@ class ItemController extends Controller
 {
     public function getDaily()
     {
-        $item_id = Daily::first();
+        $item_id = Daily::first()->id;
         $item = Item::find($item_id);
         return [
             'content' => $item->content,
