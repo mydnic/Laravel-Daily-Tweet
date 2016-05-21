@@ -18,7 +18,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('{slug}', ['as' => 'item.show', 'uses' => 'ItemController@show']);
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'api'], function () {
+Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
     Route::get('daily', 'API\ItemController@getDaily');
 });
 
