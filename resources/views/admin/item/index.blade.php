@@ -16,7 +16,6 @@
                             <tr>
                                 <th>Content</th>
                                 <th>Categories</th>
-                                <th>Created At</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -32,13 +31,10 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        {{ $item->created_at->format('d/m/Y') }}
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('admin.item.edit', $item->id) }}" class="btn btn-info">
+                                        <a href="{{ route('admin.item.edit', $item->id) }}" class="btn btn-info btn-xs">
                                             Edit
                                         </a>
-                                        <a href="{{ route('item.show', $item->slug) }}" class="btn btn-success">
+                                        <a href="{{ route('item.show', $item->slug) }}" class="btn btn-success btn-xs">
                                             View
                                         </a>
                                     </td>
