@@ -31,7 +31,7 @@ class SelectRandomAndTweet extends Command
     public function handle()
     {
         $daily_item = Daily::first();
-        $random_item = Item::orderByRaw('RAND()')->first();
+        $random_item = Item::where('id', '!=', $daily_item->item_id)->orderByRaw('RAND()')->first();
         $daily_item->item_id = $random_item->id;
         $daily_item->save();
 
