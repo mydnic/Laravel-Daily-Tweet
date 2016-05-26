@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 text-center">
-                <h1>{{ $item->content }}</h1>
+                <h1>{!! nl2br(e($item->content)) !!}</h1>
             </div>
         </div>
     </div>
