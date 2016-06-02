@@ -22,7 +22,7 @@ class ItemController extends Controller
             return redirect()->route('admin.item.index');
         }
 
-        return view('item.show')
+        return view('item.daily')
             ->with('settings', $settings)
             ->with('item', $item);
     }
