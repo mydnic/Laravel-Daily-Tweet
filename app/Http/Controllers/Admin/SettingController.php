@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use App\Services\Upload;
 use App\Setting;
-use Illuminate\Http\Request;
+use App\Services\Upload;
 use Laracasts\Flash\Flash;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SettingController extends Controller
 {
     public function edit()
     {
         $settings = Setting::first();
+
         return view('admin.settings.edit')
             ->with('settings', $settings);
     }

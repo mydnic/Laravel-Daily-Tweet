@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -17,6 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::with('items')->get();
+
         return view('admin.category.index')
             ->with('categories', $categories);
     }
@@ -28,11 +29,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category       = new Category;
+        $category = new Category;
         $category->name = $request->input('name');
         $category->save();
 
-        Flash::success('Category "' . $category->name . '" has been created');
+        Flash::success('Category "'.$category->name.'" has been created');
 
         return redirect()->back();
     }
@@ -58,7 +59,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category       = Category::find($id);
+        $category = Category::find($id);
         $category->name = $request->input('name');
         $category->save();
 

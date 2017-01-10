@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Category;
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Item;
-use Illuminate\Http\Request;
+use App\Category;
 use Laracasts\Flash\Flash;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ItemController extends Controller
 {
@@ -15,6 +14,7 @@ class ItemController extends Controller
     {
         $items = Item::all();
         $categories = Category::all();
+
         return view('admin.item.index')
             ->with('categories', $categories)
             ->with('items', $items);
@@ -23,6 +23,7 @@ class ItemController extends Controller
     public function create()
     {
         $categories = Category::all();
+
         return view('admin.item.create')
             ->with('categories', $categories);
     }

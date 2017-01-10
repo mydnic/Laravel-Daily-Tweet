@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Daily;
-use App\Http\Requests;
 use App\Item;
+use App\Daily;
 use App\Setting;
-use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
-use Twitter;
 
 class ItemController extends Controller
 {
@@ -19,6 +16,7 @@ class ItemController extends Controller
 
         if (is_null($item)) {
             Flash::warning('Please add your first item');
+
             return redirect()->route('admin.item.index');
         }
 
@@ -31,6 +29,7 @@ class ItemController extends Controller
     {
         $item = Item::findBySlug($slug);
         $settings = Setting::first();
+
         return view('item.show')
             ->with('settings', $settings)
             ->with('item', $item);
@@ -38,7 +37,8 @@ class ItemController extends Controller
 
     public function showRandom()
     {
-        $item = Item::orderByRaw("RAND()")->first();
+        $item = Item::orderByRaw('RAND()')->first();
+
         return redirect()->route('item.show', $item->slug);
     }
 }
