@@ -22,7 +22,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
     Route::get('daily', 'API\ItemController@getDaily');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('item', 'Admin\ItemController');
     Route::get('category/{id}/delete', ['as' => 'admin.category.delete', 'uses' => 'Admin\CategoryController@delete']);
     Route::resource('category', 'Admin\CategoryController');

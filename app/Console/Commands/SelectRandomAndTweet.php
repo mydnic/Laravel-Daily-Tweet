@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Daily;
-use App\Item;
-use Illuminate\Console\Command;
 use Twitter;
+use App\Item;
+use App\Daily;
+use Illuminate\Console\Command;
 
 class SelectRandomAndTweet extends Command
 {
@@ -36,8 +36,8 @@ class SelectRandomAndTweet extends Command
         $daily_item->save();
 
         Twitter::postTweet([
-            'status' => $random_item->content . ' ' . route('item.show', $random_item->slug),
-            'format' => 'json'
+            'status' => $random_item->content.' '.route('item.show', $random_item->slug),
+            'format' => 'json',
         ]);
     }
 }

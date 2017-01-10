@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use Sofa\Eloquence\Eloquence;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Sofa\Eloquence\Eloquence;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+use Cviebrock\EloquentSluggable\SluggableInterface;
 
 class Item extends Model implements SluggableInterface
 {
