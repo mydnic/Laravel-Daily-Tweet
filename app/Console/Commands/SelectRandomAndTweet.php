@@ -36,7 +36,7 @@ class SelectRandomAndTweet extends Command
         $daily_item->save();
 
         Twitter::postTweet([
-            'status' => $random_item->content.' '.route('item.show', $random_item->slug),
+            'status' => str_limit($random_item->content, 140) . ' ' . route('item.show', $random_item->slug),
             'format' => 'json',
         ]);
     }
