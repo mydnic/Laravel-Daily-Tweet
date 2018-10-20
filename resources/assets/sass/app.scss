@@ -1,2 +1,15 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+body {
+    font-family: 'Lato';
+}
 
+img {
+    max-width: 100%;
+}
+
+.fa-btn {
+    margin-right: 6px;
+}
+
+span.coma:last-child {
+    display: none;
+}
