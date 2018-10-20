@@ -13,10 +13,3 @@ img {
 span.coma:last-child {
     display: none;
 }
-
-.code {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
