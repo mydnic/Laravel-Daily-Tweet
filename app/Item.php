@@ -25,11 +25,6 @@ class Item extends Model
         ];
     }
 
-    protected $sluggable = [
-        'build_from' => 'content',
-        'save_to' => 'slug',
-    ];
-
     protected $searchableColumns = ['content', 'content', 'category.name'];
 
     protected $fillable = ['content'];
