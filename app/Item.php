@@ -4,17 +4,30 @@ namespace App;
 
 use Sofa\Eloquence\Eloquence;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Cviebrock\EloquentSluggable\SluggableTrait;
-use Cviebrock\EloquentSluggable\SluggableInterface;
 
-class Item extends Model implements SluggableInterface
+class Item extends Model
 {
-    use SoftDeletes, SluggableTrait, Eloquence;
+    use SoftDeletes, Eloquence, Sluggable;
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'content'
+            ]
+        ];
+    }
 
     protected $sluggable = [
         'build_from' => 'content',
-        'save_to'    => 'slug',
+        'save_to' => 'slug',
     ];
 
     protected $searchableColumns = ['content', 'content', 'category.name'];
