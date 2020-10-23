@@ -2,14 +2,13 @@
 
 namespace App;
 
-use Sofa\Eloquence\Eloquence;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Item extends Model
 {
-    use SoftDeletes, Eloquence, Sluggable;
+    use SoftDeletes, Sluggable;
 
     /**
      * Return the sluggable configuration array for this model.
@@ -32,5 +31,10 @@ class Item extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Category');
+    }
+
+    public static function findBySlug($slug)
+    {
+        return self::where('slug', $slug)->firstOrFail();
     }
 }

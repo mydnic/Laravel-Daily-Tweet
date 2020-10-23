@@ -16,7 +16,6 @@ class LayoutComposer
 
     public function compose(View $view)
     {
-        $view
-            ->with('settings', $this->settings);
+        $view->with('settings', $this->settings);
     }
 }
