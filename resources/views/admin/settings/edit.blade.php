@@ -17,9 +17,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Application Description</label>
-                            <textarea name="description" id="description" class="form-control">
-                                {{ $settings->description }}
-                            </textarea>
+                            <textarea name="description" id="description" class="form-control">{{ $settings->description }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="logo">Your logo</label>
