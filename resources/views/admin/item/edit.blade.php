@@ -39,6 +39,7 @@
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="category_id[]" value="{{ $category->id }}" @if ($item->categories->contains($category->id)) checked @endif>
+                                    {{ $category->name }}
                                 </label>
                             </div>
                         @endforeach

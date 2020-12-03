@@ -34,6 +34,7 @@
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="category_id[]" value="{{ $category->id }}">
+                                    {{ $category->name }}
                                 </label>
                             </div>
                         @endforeach
