@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-        {!! Form::model($settings, ['route' => 'admin.setting.update', 'files' => true]) !!}
         <form action="{{route('admin.setting.update')}}" enctype="multipart/form-data" method="post">
             @csrf
 
