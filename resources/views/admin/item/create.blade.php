@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        {!! Form::open(['route' => 'admin.item.store']) !!}
+        <form method="post" action="{{route('admin.item.store')}}">
             <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">Add new item</div>
 
                     <div class="panel-body">
                         <div class="form-group">
-                            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+                            <textarea name="content" id="content" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         Publish
                     </div>
                     <div class="panel-body">
-                        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -33,14 +33,14 @@
                         @foreach ($categories as $category)
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('category_id[]', $category->id) !!} {{ $category->name }}
+                                    <input type="checkbox" name="category_id[]" value="{{ $category->id }}">
                                 </label>
                             </div>
                         @endforeach
                     </div>
                 </div>
             </div>
-        {!! Form::close() !!}
+        </form>
     </div>
 </div>
 @endsection

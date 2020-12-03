@@ -3,14 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row">
-        {!! Form::model($item, ['route' => ['admin.item.update', $item->id], 'method' => 'put']) !!}
+        <form action="{{route('admin.item.update', $item->id)}}" method="post">
+            @csrf
+            @method('put')
+
             <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">Edit item</div>
 
                     <div class="panel-body">
                         <div class="form-group">
-                            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+                            <textarea name="content" id="content" class="form-control">
+                                {{ $item->content }}
+                            </textarea>
                         </div>
                     </div>
                 </div>
@@ -21,7 +26,7 @@
                         Publish
                     </div>
                     <div class="panel-body">
-                        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -33,14 +38,14 @@
                         @foreach ($categories as $category)
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('category_id[]', $category->id, $item->categories->contains($category->id)) !!} {{ $category->name }}
+                                    <input type="checkbox" name="category_id[]" value="{{ $category->id }}" @if ($item->categories->contains($category->id)) checked @endif>
                                 </label>
                             </div>
                         @endforeach
                     </div>
                 </div>
             </div>
-        {!! Form::close() !!}
+        </form>
     </div>
 </div>
 @endsection

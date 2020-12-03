@@ -64,16 +64,17 @@
                             </li>
                         @endforeach
                     </ul>
-                    {!! Form::open(['route' => 'admin.category.store']) !!}
+                    <form action="{{route('admin.category.store')}}" method="post">
+                        @csrf
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </span>
-                            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Add new category']) !!}
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Add new category">
                         </div>
-                    {!! Form::close() !!}
+                    </form>
                 </div>
             </div>
         </div>
